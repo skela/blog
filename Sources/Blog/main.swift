@@ -8,7 +8,7 @@ struct Blog : Website
 	{
 		case posts
 		case about
-    }
+	}
 
 	struct ItemMetadata : WebsiteItemMetadata
 	{
