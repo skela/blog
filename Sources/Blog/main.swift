@@ -16,7 +16,7 @@ struct Blog : Website
 
 	var url = URL(string: "https://alekslater.com")!
 	var name = "Alek Slater"
-	var description = "A description of Blog"
+	var description = "Hi, my name is Alek Slater. I made this blog to help me remember the things I have done and learned, so my future-self does not have to re-learn them in the future."
 	var language : Language { .english }
 	var imagePath : Path? { nil }
 }

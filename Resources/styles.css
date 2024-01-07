@@ -187,6 +187,7 @@ article img {
 /*  width: 600px;*/
   width: 100%;
   margin-bottom: 15px;
+  border-radius: 6px;
 }
 
 /*
@@ -263,7 +264,7 @@ a {
 
 a:hover
 {
-	color: red;
+	color: #FF0000;
 }
 
 .small-divider {
@@ -496,8 +497,9 @@ nav li a.selected
 }
 
 .item-list h1 a:hover,
-.item-list h3 a:hover {
-  color: #AA1945;
+.item-list h3 a:hover
+{
+  color: #FF0000;
 }
 
 .item-metadata {
@@ -619,10 +621,10 @@ nav li a.selected
   text-decoration: none;
 }
 
-.portfolio-section li a:hover {
-  color: #AA1945;
+.portfolio-section li a:hover
+{
+	color: #FF0000;
 }
-
 
 /*
  About Page
@@ -635,7 +637,7 @@ nav li a.selected
 
 .about-me-text a:hover,
 .about-me-contact-info a:hover {
-  color: #AA1945;
+  color: #FF0000;
 }
 
 .about-me-text p {
@@ -697,15 +699,16 @@ footer {
   margin-bottom: 40px;
 }
 
-footer p a {
-    text-decoration: none;
+footer p a
+{
+	text-decoration: none;
 }
 
-footer p a:hover {
-    text-decoration: underline;
-    color: #AA1945;
+footer p a:hover
+{
+	text-decoration: underline;
+	color: #FF0000;
 }
-
 
 /*
  Dark Mode
