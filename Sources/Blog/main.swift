@@ -19,6 +19,7 @@ struct Blog : Website
 	var description = "Hi, my name is Alek Slater. I made this blog to help me remember the things I have done and learned, so my future-self does not have to re-learn them in the future."
 	var language : Language { .english }
 	var imagePath : Path? { nil }
+	var favicon : Favicon? { .init(path: Path("/favicon.svg"), type: "image/svg+xml")}
 }
 
 public extension Theme

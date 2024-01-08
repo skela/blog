@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Alek Slater</title><description>Hi, my name is Alek Slater. I made this blog to help me remember the things I have done and learned, so my future-self does not have to re-learn them in the future.</description><link>https://alekslater.com</link><language>en</language><lastBuildDate>Mon, 8 Jan 2024 00:18:42 +0100</lastBuildDate><pubDate>Mon, 8 Jan 2024 00:18:42 +0100</pubDate><ttl>250</ttl><atom:link href="https://alekslater.com/feed.rss" rel="self" type="application/rss+xml"/><item><guid isPermaLink="true">https://alekslater.com/posts/LED%20Strip%20Bracket</guid><title>LED Strip Bracket</title><description>Attaching my new LED strip.</description><link>https://alekslater.com/posts/LED%20Strip%20Bracket</link><pubDate>Sun, 7 Jan 2024 21:17:00 +0100</pubDate><content:encoded><![CDATA[<p>Needed a way to attach a LED strip I bought from <a href="https://www.aliexpress.com/item/1005003213415540.html">AliExpress</a> to a surface. The dimensions of this particular strip were 11.8mm by 6mm. So <a href="https://openscad.org/">OpenSCAD</a> to the rescue. Made a simple cube, cut out a channel and added a screw hole.</p><img src="https://alekslater.com/res/led_strip_bracket.png" alt="OpenSCAD Model"/><p>Making the most of my Ender 5 Pro build plate, with a sequential print, 9 brackets at a time.</p><img src="https://alekslater.com/res/led_strip_bracket-sequential_print.png" alt="Sequential Print"/><pre><code>led_thickness = 11.8;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Alek Slater</title><description>Hi, my name is Alek Slater. I made this blog to help me remember the things I have done and learned, so my future-self does not have to re-learn them in the future.</description><link>https://alekslater.com</link><language>en</language><lastBuildDate>Mon, 8 Jan 2024 23:30:17 +0100</lastBuildDate><pubDate>Mon, 8 Jan 2024 23:30:17 +0100</pubDate><ttl>250</ttl><atom:link href="https://alekslater.com/feed.rss" rel="self" type="application/rss+xml"/><item><guid isPermaLink="true">https://alekslater.com/posts/LED%20Strip%20Bracket</guid><title>LED Strip Bracket</title><description>Attaching my new LED strip.</description><link>https://alekslater.com/posts/LED%20Strip%20Bracket</link><pubDate>Sun, 7 Jan 2024 21:17:00 +0100</pubDate><content:encoded><![CDATA[<p>Needed a way to attach a LED strip I bought from <a href="https://www.aliexpress.com/item/1005003213415540.html">AliExpress</a> to an under-bed storage box. The dimensions of this particular strip were 11.8mm by 6mm. So <a href="https://openscad.org/">OpenSCAD</a> to the rescue. Made a simple cube, cut out a channel and added a screw hole.</p><h3>Making a 3D Model</h3><p>With OpenSCAD you can create 3D models using code, something I personally find much simpler than a graphical design tool. Its also a lot easier to adjust and modify these kinds of models, to fit other kinds of use-cases.</p><pre><code>led_thickness = 11.8;
 led_height = 6;
 
 bw = 20; // bracket width
@@ -26,4 +26,50 @@ difference()
     translate([0,0,-5]) { cylinder(h=bt/2,r=2.4,center=true); }
     translate([0,0,-5]) { cylinder(h=bt*2,r=1,center=true); }
 }
+</code></pre><h3>Exporting as an STL file</h3><p>Once your happy with your design, you export it as an STL file, and then import that into the slicer / 3D printer software of your choice. Here I'm using <a href="https://ultimaker.com/">UltiMaker Cura</a>.</p><img src="https://alekslater.com/res/led_strip_bracket.png" alt="OpenSCAD Model"/><h3>Sequential Prints</h3><p>Printing a bunch of these would be a tad too tedious, if you had to do it 1 by 1. With UltiMaker Cura, you can set it to print sequentially. In this case, I was able to squeeze in 9 brackets every print, making the most of every square inch of my Ender 5 Pro build plate.</p><img src="https://alekslater.com/res/led_strip_bracket-sequential_print.png" alt="Sequential Print"/>]]></content:encoded></item><item><guid isPermaLink="true">https://alekslater.com/posts/Docker%20Log%20Overload</guid><title>Docker Log Overload</title><description>Avoiding your hard disks from filling up with junk due to excessive docker logging.</description><link>https://alekslater.com/posts/Docker%20Log%20Overload</link><pubDate>Wed, 13 Dec 2023 22:50:00 +0100</pubDate><content:encoded><![CDATA[<p>By adding logging parameters to your docker-compose.yml file services, you can avoid your hard drive from filling up.</p><pre><code>version: '3'
+
+# Define a common logging configuration as an anchor
+x-common-logging: &amp;common-logging
+  logging:
+    driver: json-file
+    options:
+      max-size: "100m" # Set the maximum size of each log file to 10MB
+      max-file: "10"   # Limit the number of log files to 5
+
+services:
+
+  hass:
+    container_name: hass
+    depends_on:
+        - mosquitto
+        - postgres
+    image: homeassistant/home-assistant:2023.10
+    restart: always
+    network_mode: host
+    privileged: true
+    environment:
+      - TZ=Europe/Oslo
+    volumes:
+      - ./hass/config:/config
+    deploy:
+      resources:
+        limits:
+          memory: 2000M
+    &lt;&lt;: *common-logging
+
+  nodered:
+    container_name: nodered
+    image: nodered/node-red:latest    
+    environment:
+      TZ: Europe/Oslo
+    ports:
+      - "1880:1880"
+    restart: always
+    volumes:
+      - ./nodered/data:/data
+    deploy:
+      resources:
+        limits:
+          memory: 500M
+    &lt;&lt;: *common-logging
 </code></pre>]]></content:encoded></item></channel></rss>
