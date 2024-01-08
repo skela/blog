@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Alek Slater</title><description>Hi, my name is Alek Slater. I made this blog to help me remember the things I have done and learned, so my future-self does not have to re-learn them in the future.</description><link>https://alekslater.com</link><language>en</language><lastBuildDate>Mon, 8 Jan 2024 00:18:42 +0100</lastBuildDate><pubDate>Mon, 8 Jan 2024 00:18:42 +0100</pubDate><ttl>250</ttl><atom:link href="https://alekslater.com/feed.rss" rel="self" type="application/rss+xml"/><item><guid isPermaLink="true">https://alekslater.com/posts/LED%20Strip%20Bracket</guid><title>LED Strip Bracket</title><description>Attaching my new LED strip.</description><link>https://alekslater.com/posts/LED%20Strip%20Bracket</link><pubDate>Sun, 7 Jan 2024 21:17:00 +0100</pubDate><content:encoded><![CDATA[<p>Needed a way to attach a LED strip I bought from <a href="https://www.aliexpress.com/item/1005003213415540.html">AliExpress</a> to a surface. The dimensions of this particular strip were 11.8mm by 6mm. So <a href="https://openscad.org/">OpenSCAD</a> to the rescue. Made a simple cube, cut out a channel and added a screw hole.</p><img src="https://alekslater.com/res/led_strip_bracket.png" alt="OpenSCAD Model"/><p>Making the most of my Ender 5 Pro build plate, with a sequential print, 9 brackets at a time.</p><img src="https://alekslater.com/res/led_strip_bracket-sequential_print.png" alt="Sequential Print"/><pre><code>led_thickness = 11.8;
+led_height = 6;
+
+bw = 20; // bracket width
+bt = 2; // bracket thickness
+lfh = led_height + 0.2; // channel height to fit the led strip
+bd = 12; // bracket depth, needs to be bigger than led thickness
+
+$fn=1000;
+
+module bracket()
+{
+    difference()
+    {
+        cube([bw,lfh+bt,bd],center=true);
+        translate([0,0,bt])
+        {
+            cube([bw+bt,lfh,bd+bt],center=true);
+        }
+    }
+}
+
+difference()
+{
+    bracket();
+    translate([0,0,-5]) { cylinder(h=bt/2,r=2.4,center=true); }
+    translate([0,0,-5]) { cylinder(h=bt*2,r=1,center=true); }
+}
+</code></pre>]]></content:encoded></item></channel></rss>

@@ -1,0 +1,29 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"/><meta property="og:site_name" content="Alek Slater"/><link rel="canonical" href="https://alekslater.com/posts/LED%20Strip%20Bracket"/><meta name="twitter:url" content="https://alekslater.com/posts/LED%20Strip%20Bracket"/><meta property="og:url" content="https://alekslater.com/posts/LED%20Strip%20Bracket"/><title>LED Strip Bracket | Alek Slater</title><meta name="twitter:title" content="LED Strip Bracket | Alek Slater"/><meta property="og:title" content="LED Strip Bracket | Alek Slater"/><meta name="description" content="Attaching my new LED strip."/><meta name="twitter:description" content="Attaching my new LED strip."/><meta property="og:description" content="Attaching my new LED strip."/><meta name="twitter:card" content="summary"/><link rel="stylesheet" href="/styles.css" type="text/css"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><link rel="shortcut icon" href="/images/favicon.png" type="image/png"/><link rel="alternate" href="/feed.rss" type="application/rss+xml" title="Subscribe to Alek Slater"/></head><body class="item-page"><header><div class="wrapper"><a href="/" class="site-name">Alek Slater</a><nav><ul><li><a href="/posts" class="selected">Posts</a></li><li><a href="/about">About</a></li></ul></nav></div></header><div class="wrapper"><article><div class="content"><p>Needed a way to attach a LED strip I bought from <a href="https://www.aliexpress.com/item/1005003213415540.html">AliExpress</a> to a surface. The dimensions of this particular strip were 11.8mm by 6mm. So <a href="https://openscad.org/">OpenSCAD</a> to the rescue. Made a simple cube, cut out a channel and added a screw hole.</p><img src="/res/led_strip_bracket.png" alt="OpenSCAD Model"/><p>Making the most of my Ender 5 Pro build plate, with a sequential print, 9 brackets at a time.</p><img src="/res/led_strip_bracket-sequential_print.png" alt="Sequential Print"/><pre><code>led_thickness = 11.8;
+led_height = 6;
+
+bw = 20; // bracket width
+bt = 2; // bracket thickness
+lfh = led_height + 0.2; // channel height to fit the led strip
+bd = 12; // bracket depth, needs to be bigger than led thickness
+
+$fn=1000;
+
+module bracket()
+{
+    difference()
+    {
+        cube([bw,lfh+bt,bd],center=true);
+        translate([0,0,bt])
+        {
+            cube([bw+bt,lfh,bd+bt],center=true);
+        }
+    }
+}
+
+difference()
+{
+    bracket();
+    translate([0,0,-5]) { cylinder(h=bt/2,r=2.4,center=true); }
+    translate([0,0,-5]) { cylinder(h=bt*2,r=1,center=true); }
+}
+</code></pre></div><span>Tagged with: </span><ul class="tag-list"><li><a href="/tags/openscad">openscad</a></li><li><a href="/tags/diy">diy</a></li></ul></article></div><footer><p>Generated using <a href="https://github.com/johnsundell/publish">Publish</a></p><p><a href="/feed.rss">RSS feed</a></p></footer></body></html>
