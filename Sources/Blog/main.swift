@@ -16,7 +16,11 @@ struct Blog : Website
 
 	var url = URL(string: "https://alekslater.com")!
 	var name = "Alek Slater"
-	var description = "Hi, my name is Alek Slater. I made this blog to help me remember the things I have done and learned, so my future-self does not have to re-learn them in the future."
+	var description = """
+Welcome to Alek Slater's Tech Blog, where coding meets creativity and technology is the ultimate problem-solving tool!
+As a fervent software developer, I'm on a journey through the ever-evolving landscape of technology,
+exploring the realms of apps, linux, docker, smart homes and 3D printing to tackle and solve interesting problems.
+"""
 	var language : Language { .english }
 	var imagePath : Path? { nil }
 	var favicon : Favicon? { .init(path: Path("/favicon.svg"), type: "image/svg+xml")}
@@ -27,7 +31,7 @@ public extension Theme
 	static var blog : Self
 	{
 		return Theme(
-			htmlFactory: BlogThemeHTMLFactory(),
+			htmlFactory: BlogHTMLFactory(),
 			resourcePaths: ["Resources/styles.css"]
 		)
 	}
