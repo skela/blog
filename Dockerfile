@@ -1,3 +1,6 @@
 FROM nginx
 
-COPY Output /usr/share/nginx/html
+ARG SRC_PATH=Output
+
+COPY $SRC_PATH /usr/share/nginx/html
+

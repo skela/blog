@@ -7,3 +7,10 @@ services:
     container_name: blog
     ports:
       - "80:80"
+
+  serve:
+    image: skela/blog-serve:latest
+    container_name: serve
+    ports:
+      - "1212:5000"
+

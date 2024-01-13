@@ -343,40 +343,75 @@ a:hover
  Header
  */
 
-header {
-  background-color: #FFF;
+.header {
+  background:#1b1c1d;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  padding:20px
 }
 
-header .wrapper {
-  padding-top: 30px;
-  padding-bottom: 30px;
-  text-align: center;
-  display: inline-block;
+.header_right {
+  display:flex;
+  flex-direction:row;
+  align-items:center
 }
 
-header span
-{
-  margin-left:30%;
-  margin-right:30%;
-  display: flex;
-    flex-direction: row;
-    /*justify-content: space-around;*/
-    align-items: center;
-}
-
-@media(max-width: 600px) {
-  header .wrapper img {
-    max-width: 80%;
+@media(max-width:684px) {
+  .header_right {
+    flex-direction:row-reverse
   }
 }
 
-header a {
-  text-decoration: none;
+.header_inner {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:0 auto;
+  width:760px;
+  max-width:100%
 }
 
-header .banner-img {
-  max-width: 80%;
-  margin-bottom: 6px;
+.header_logo_terminal {
+      font-family: 'Courier New', monospace;
+    background-color: #292929;
+      color: #fff;
+      max-width: 200px;
+      background-color: #1e1e1e;
+	      padding-top: 10px;
+      padding-bottom: 10px;
+  padding-right: 20px;
+  padding-left:20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .header_logo_terminal_prompt {
+      color: #66d9ef; /* Blue color for the prompt */
+      display: inline-block;
+      margin-right: 8px;
+    }
+
+    .header_logo_terminal_cursor {
+    margin-left: 8px;
+      display: inline-block;
+      background-color: #ff5e57; /* Red color for the cursor */
+      width: 8px;
+      height: 18px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+.header_logo_link
+{
+color:transparent;
+
 }
 
 .banner-title {
@@ -420,13 +455,6 @@ header .banner-img {
 nav {
   margin-left:16px;
   margin-right:16px;
-}
-
-.site-name
-{
-  margin: 0 2px;
-  line-height: 24px;
-  font-size: 20px;
 }
 
 nav li {

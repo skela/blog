@@ -11,20 +11,19 @@ struct SiteHeader<Site:Website> : Component
 	{
 		Header
 		{
-			Wrapper
+			Span
 			{
+				Link(url: "/",label:{ logo }).class("header_logo_link")
+
 				Span
 				{
-					Link(context.site.name, url: "/")
-					.class("site-name")
-
 					if Site.SectionID.allCases.count > 1
 					{
 						navigation
 					}
-				}
-			}
-		}
+				}.class("header_right")
+			}.class("header_inner")
+		}.class("header")
 	}
 
 	private var navigation : Component
@@ -40,4 +39,31 @@ struct SiteHeader<Site:Website> : Component
 			}
 		}
 	}
+
+	private var logo : Component
+	{
+			Div
+			{
+				Span
+				{
+					Text("alek@world.com")
+				}.class("header_logo_terminal_prompt")
+
+				Span
+				{
+					Text("> ls .")
+				}.class("logo_ls_pwd")
+
+//				Span
+				//{
+//					Text("> cd /")
+//				}.class("logo_cd_root")
+
+				Span
+				{
+
+				}.class("header_logo_terminal_cursor")
+			}.class("header_logo_terminal")
+	}
 }
+
