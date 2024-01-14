@@ -48,6 +48,7 @@ I've got this snippet below added to my `.editorconfig` file. blink looks for an
 [*.dart]
 indent_style = tab
 indent_size = 2
-curly_bracket_next_line = true
+curly_brace_on_next_line = true
+prefer_double_quotes = true
 trim_trailing_whitespace = true
 ```
