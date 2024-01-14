@@ -42,35 +42,35 @@ struct SiteHeader<Site:Website> : Component
 
 	private var logo : Component
 	{
-			Div
+		Div
+		{
+			Span
 			{
-				Span
-				{
-					Text("alek@world")
-				}.class("header_logo_terminal_userhost")
+				Text("alek@world")
+			}.class("header_logo_terminal_userhost")
 
-				Span
-				{
-					Span { Text("") }.class("header_logo_terminal_powerline_left")
-					Span { Text("~") }.class("header_logo_terminal_powerline_center")
-					Span { Text("") }.class("header_logo_terminal_powerline_right")
-				}.class("header_logo_terminal_powerline")
+			Span
+			{
+				Span { Text("") }.class("header_logo_terminal_powerline_left")
+				Span { Text("~") }.class("header_logo_terminal_powerline_center")
+				Span { Text("") }.class("header_logo_terminal_powerline_right")
+			}.class("header_logo_terminal_powerline")
 
-				Span
-				{
-					Text("ls .")
-				}.class("logo_ls_pwd")
+			Span
+			{
+				Text("ls .")
+			}.class("logo_ls_pwd")
 
-				Span
-				{
-					Text("cd /")
-				}.class("logo_cd_root")
+			Span
+			{
+				Text("cd /")
+			}.class("logo_cd_root")
 
-				Span
-				{
+			Span
+			{
 
-				}.class("header_logo_terminal_cursor")
-			}.class("header_logo_terminal")
+			}.class("header_logo_terminal_cursor")
+		}.class("header_logo_terminal")
 	}
 }
 
