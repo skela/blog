@@ -41,7 +41,7 @@ services:
 
   nodered:
     container_name: nodered
-    image: nodered/node-red:latest    
+    image: nodered/node-red:latest
     environment:
       TZ: Europe/Oslo
     ports:

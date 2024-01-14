@@ -44,6 +44,7 @@ pre code {
 	overflow-x: auto;
 	white-space: pre;
 	-webkit-overflow-scrolling: touch;
+	tab-size: 2;
 }
 
 pre code .keyword {
