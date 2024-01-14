@@ -46,18 +46,25 @@ struct SiteHeader<Site:Website> : Component
 			{
 				Span
 				{
-					Text("alek@world.com")
-				}.class("header_logo_terminal_prompt")
+					Text("alek@world")
+				}.class("header_logo_terminal_userhost")
 
 				Span
 				{
-					Text("> ls .")
+					Span { Text("") }.class("header_logo_terminal_powerline_left")
+					Span { Text("~") }.class("header_logo_terminal_powerline_center")
+					Span { Text("") }.class("header_logo_terminal_powerline_right")
+				}.class("header_logo_terminal_powerline")
+
+				Span
+				{
+					Text("ls .")
 				}.class("logo_ls_pwd")
 
-//				Span
-				//{
-//					Text("> cd /")
-//				}.class("logo_cd_root")
+				Span
+				{
+					Text("cd /")
+				}.class("logo_cd_root")
 
 				Span
 				{

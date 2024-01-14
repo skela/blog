@@ -6,21 +6,21 @@
 
 @font-face
 {
-  font-family: "Main";
-  src: url(/fonts/Inter-UI-Regular.otf);
+	font-family: "Main";
+	src: url(/fonts/Inter-UI-Regular.otf);
 }
 
 @font-face
 {
-  font-family: "Main";
-  src: url(/fonts/Inter-UI-Bold.otf);
-  font-weight: bold;
+	font-family: "Main";
+	src: url(/fonts/Inter-UI-Bold.otf);
+	font-weight: bold;
 }
 
 @font-face
 {
-  font-family: "Code";
-  src: url(/fonts/JetBrainsMono-Regular.ttf);
+	font-family: "Code";
+	src: url(/fonts/JetBrainsMono-Regular.ttf);
 }
 
 /*
@@ -343,75 +343,124 @@ a:hover
  Header
  */
 
-.header {
-  background:#1b1c1d;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  padding:20px
+.header
+{
+	background:#1b1c1d;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	position:relative;
+	padding:20px
 }
 
-.header_right {
-  display:flex;
-  flex-direction:row;
-  align-items:center
+.header_right
+{
+	display:flex;
+	flex-direction:row;
+	align-items:center
 }
 
-@media(max-width:684px) {
-  .header_right {
-    flex-direction:row-reverse
-  }
+@media(max-width:684px)
+{
+	.header_right
+	{
+		flex-direction:row-reverse
+	}
 }
 
-.header_inner {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin:0 auto;
-  width:760px;
-  max-width:100%
+.header_inner
+{
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	margin:0 auto;
+	width:760px;
+	max-width:100%
 }
 
-.header_logo_terminal {
-      font-family: 'Courier New', monospace;
-    background-color: #292929;
-      color: #fff;
-      max-width: 200px;
-      background-color: #1e1e1e;
-	      padding-top: 10px;
-      padding-bottom: 10px;
-  padding-right: 20px;
-  padding-left:20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
+.header_logo_terminal
+{
+	font-family: 'Courier New', monospace;
+	color: #fff;
+	background-color: #1e1e1e;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+}
 
-    .header_logo_terminal_prompt {
-      color: #66d9ef; /* Blue color for the prompt */
-      display: inline-block;
-      margin-right: 8px;
-    }
+.header_logo_terminal_userhost
+{
+	color: #66d9ef;
+	display: inline-block;
+	margin-right: 4px;
+}
 
-    .header_logo_terminal_cursor {
-    margin-left: 8px;
-      display: inline-block;
-      background-color: #ff5e57; /* Red color for the cursor */
-      width: 8px;
-      height: 18px;
-      animation: blink 1s infinite;
-    }
+.header_logo_terminal_cursor
+{
+	margin-left: 8px;
+	display: inline-block;
+	background-color: #ff5e57;
+	width: 4px;
+	height: 18px;
+	animation: blink 1s infinite;
+}
 
-    @keyframes blink {
-      50% {
-        opacity: 0;
-      }
-    }
+@keyframes blink
+{
+	50%
+	{
+		opacity: 0;
+	}
+}
+
 .header_logo_link
 {
-color:transparent;
+	color: transparent;
+	text-decoration: none;
+}
 
+.header_logo_terminal_powerline
+{
+	background-color: red;
+	margin-right: 10px;
+	font-family: Code, monospace;
+}
+
+.header_logo_terminal_powerline_left
+{
+	color:#1e1e1e;
+	background-color:red;
+}
+
+.header_logo_terminal_powerline_center
+{
+	background-color:red;
+	color:white;
+}
+
+.header_logo_terminal_powerline_right
+{
+	color:red;
+	background-color:#1e1e1e;
+}
+
+.logo_cd_root
+{
+	display:none;
+}
+
+.header_logo_link:hover .logo_ls_pwd
+{
+	display:none;
+}
+
+.header_logo_link:hover .logo_cd_root
+{
+	display:inline;
 }
 
 .banner-title {
