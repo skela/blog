@@ -33,7 +33,7 @@ Turns out yes, its a lot easier to do this sort of stuff using nvim, infact it t
 				command = "/home/skela/code/blink/target/release/blink",
 				args = { "$FILENAME" },
 				stdin = false,
-				cwd = require("conform.util").root_file({ ".editorconfig", "Pubspec.yaml" }),
+				cwd = require("conform.util").root_file({ ".editorconfig", "pubspec.yaml" }),
 			},
 		},
 	},
