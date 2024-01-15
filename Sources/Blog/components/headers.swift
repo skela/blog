@@ -36,6 +36,8 @@ struct SiteHeader<Site:Website> : Component
 
 				return Link(section.title,url: section.path.absoluteString)
 				.class(sectionID == selectedSelectionID ? "selected" : "")
+				.id("header_nav_\(sectionID)")
+
 			}
 		}
 	}
@@ -59,7 +61,7 @@ struct SiteHeader<Site:Website> : Component
 			Span
 			{
 				Text("ls .")
-			}.class("logo_ls_pwd")
+			}.class("logo_ls_pwd").id("header_nav_terminal_cmd")
 
 			Span
 			{

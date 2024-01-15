@@ -20,6 +20,28 @@ if should_inject:
 </script>
 """
 
+script_junk = """
+<script>
+	const cmd = document.querySelector("#header_nav_terminal_cmd");
+
+	const posts = document.querySelector("#header_nav_posts");
+	posts.addEventListener("mouseenter", (el) => {
+		cmd.innerText = "cd posts";
+	});
+	posts.addEventListener("mouseleave", (el) => {
+		cmd.innerText = "ls .";
+	});
+
+	const about = document.querySelector("#header_nav_about");
+	about.addEventListener("mouseenter", (el) => {
+		cmd.innerText = "cd about";
+	});
+	about.addEventListener("mouseleave", (el) => {
+		cmd.innerText = "ls .";
+	});
+</script>
+"""
+
 if os.path.exists(".dev"):
 	os.system("rm -fdr .dev")
 os.system("cp -R Output .dev")
@@ -40,6 +62,7 @@ for html_file in html_files:
 	f.close()
 
 	s = s.replace("</head>",f"{dev_junk}</head>")
+	s = s.replace("</body>",f"{script_junk}</body>")
 
 	dest = html_file.split("/")
 	dest[0] = ".dev"
