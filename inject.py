@@ -1,9 +1,9 @@
 import os
 
-should_inject = False
+should_inject_dev_junk = False
 
 dev_junk = ""
-if should_inject:
+if should_inject_dev_junk:
 	dev_junk = """
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
 <script type="text/javascript" charset="utf-8">
@@ -61,8 +61,12 @@ for html_file in html_files:
 	s = f.read()
 	f.close()
 
-	s = s.replace("</head>",f"{dev_junk}</head>")
 	s = s.replace("</body>",f"{script_junk}</body>")
+	f = open(html_file,"w")
+	f.write(s)
+	f.close()
+
+	s = s.replace("</head>",f"{dev_junk}</head>")
 
 	dest = html_file.split("/")
 	dest[0] = ".dev"
