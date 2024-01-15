@@ -46,7 +46,17 @@ if os.path.exists(".dev"):
 	os.system("rm -fdr .dev")
 os.system("cp -R Output .dev")
 
-folders = ["Output","Output/about","Output/posts","Output/tags"]
+folders = ["Output"]
+
+def find_folders(path):
+	files =  os.listdir(path)
+	for f in files:
+		p = os.path.join(path,f)
+		if os.path.isdir(p):
+			folders.append(p)
+			find_folders(p)
+
+find_folders("Output")
 
 html_files = []
 
