@@ -57,3 +57,8 @@ Printing a bunch of these would be a tad too tedious, if you had to do it 1 by 1
 
 ![Sequential Print](/res/led_strip_bracket-sequential_print.png)
 
+### The End Result
+
+Quite pleased with that, daughter approves.
+
+![End Result](/res/led_strip_bracket-end_result.jpg)
