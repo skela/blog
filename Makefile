@@ -8,7 +8,7 @@ build: blog serve
 
 .PHONY: blog
 blog:
-	/home/skela/code/publish/.build/release/publish-cli generate
+	docker run -it -v .:/work -w /work hulex/publish-build:latest publish generate
 	python inject.py
 	docker build --build-arg SRC_PATH=.dev -f Dockerfile -t skela/blog:latest .
 

@@ -2,6 +2,7 @@
 date: 2024-08-12 20:53
 description: Making it possible to detect your presence via your Apple Watch in your Home Assistant Smart Home System.
 id: Apple Watch in HASS
+title: Apple Watch in HASS
 tags: hass, apple_watch, bluetooth, presence_detection
 ---
 
@@ -45,9 +46,9 @@ On your Raspberry Pi, install the python pip package called `TheengsGateway`.
 
 `python3 -m TheengsGateway -H IP_ADDR_MQTT -P PORT_MQTT --identities WATCH_BT_MAC_ADDRESS WATCH_BT_IRK`
 
--   IP_ADDR_MQTT: The IP Address of your MQTT server.
--   PORT_MQTT: The port number of your MQTT server.
--   WATCH_BT_MAC_ADDRESS: The Apple Watch Bluetooth Mac Address found in step 1 above.
--   WATCH_BT_IRK: The Remote IRK Found at the end of step 6.
+-   `IP_ADDR_MQTT`: The IP Address of your MQTT server.
+-   `PORT_MQTT`: The port number of your MQTT server.
+-   `WATCH_BT_MAC_ADDRESS`: The Apple Watch Bluetooth Mac Address found in step 1 above.
+-   `WATCH_BT_IRK`: The Remote IRK Found at the end of step 6.
 
 ![Apple Watch in HASS](/res/apple_watch_in_hass.png)

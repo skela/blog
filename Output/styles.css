@@ -149,6 +149,12 @@ article p {
 /*  }*/
 /*}*/
 
+article ol {
+	padding-left: 25px;
+	padding-bottom: 10px;
+	line-height: 1.4;
+}
+
 article ul {
 	padding-left: 25px;
 	padding-bottom: 10px;
