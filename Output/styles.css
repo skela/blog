@@ -230,15 +230,15 @@ body {
 
 .wrapper {
 	max-width: 900px;
-	margin-left: auto;
-	margin-right: auto;
 	padding: 40px;
 	text-align: left;
 }
 
-@media (max-width: 600px) {
+@media (min-width: 900px) {
 	.wrapper {
-		padding: 40px 20px;
+		margin-left: auto;
+		margin-right: auto;
+		max-width: 900px;
 	}
 }
 
@@ -356,12 +356,17 @@ a:hover {
 }
 
 .header_inner {
-	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	margin: 0 auto;
 	width: 760px;
 	max-width: 100%;
+}
+
+@media (min-width: 460px) {
+	.header_inner {
+		display: flex;
+	}
 }
 
 .header_logo_terminal {
