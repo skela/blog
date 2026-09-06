@@ -17,6 +17,9 @@ The software side runs on [OHF-Voice/linux-voice-assistant](https://github.com/O
 - Raspberry Pi Zero 2W
 - Seeed ReSpeaker 2-Mics Pi HAT V2.0
 - 8Ω 5W speaker
+- JST-PH 2.0 2-pin cable (speaker to HAT)
+- 16GB microSD card
+- 5V/2.5A micro-USB power supply
 - MakerWorld's [Smart Speaker Retro Radio Housing](https://makerworld.com/en/models/1775009-smart-speaker-retro-radio-housing?designId=1775009-smart-speaker-retro-radio-housing#profileId-2418348) (3D-printed casing)
 
 Stacked the ReSpeaker HAT onto the Pi's GPIO header, wired the speaker into the HAT's JST speaker port, then stuffed the whole thing into the printed case.
